@@ -1,26 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Acordion from './components/Acordion/Acordion';
+import { AppTitle } from './components/Title/AppTitle';
+import { Raiting, RaitingValueType } from './components/Raiting/Raiting';
+import OnOff from './components/OnOff/OnOff';
+import SelfControlledAcordion from './components/Acordion/SelfControlledAcordion';
+import { UnControledRaiting } from './components/Raiting/UnCOntroledRaiting';
+import ControlOnOff from './components/OnOff/ControlOnOff';
+
 
 function App() {
+  const [raitingValue, setRaitingValue] = useState<RaitingValueType>(0);
+  const [acordionValue, setAcordionValue] = useState<boolean>(false);
+  const [toggle, setToggle] = useState<boolean>(false);
+  const [on, setOn] = useState<boolean>(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AppTitle value={"This is my App"} />
+
+      {/* <SelfControlledAcordion titleValue={"One"} /> */}
+      {/* <UnControledRaiting /> */}
+
+      <Acordion collapsed={acordionValue} onClick={setAcordionValue} titleValue={'Missing title'} />
+      <Raiting value={raitingValue} onClick={setRaitingValue} />
+      <ControlOnOff toggle={toggle} onClick={() => setToggle(!toggle)}/>
+
+  
+        <OnOff onChange={setOn}/> {on.toString()}
+    
+      {/* <OnOff /> */}
+      {/* <OnOff /> */}
+      {/* <OnOff /> */}
     </div>
   );
 }
 
 export default App;
+
+
+
