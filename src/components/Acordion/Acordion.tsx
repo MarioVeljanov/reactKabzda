@@ -1,18 +1,28 @@
 import React from 'react';
 
-type AcordionTypeProps = {
-    titleValue: string
-    collapsed: boolean
-    onClick: (collapsed: boolean) => void
+export type ItemsType = {
+    title: string
+    value: number
 }
 
-function Acordion(props: AcordionTypeProps) {
+export type AcordionTypeProps = {
+    titleValue: string
+    collapsed: boolean
+    /** 
+     * Callback that is called when any item clicked
+     * @param value is value of clicked item
+    */
+    onClick: (collapsed: boolean) => void
+    items: ItemsType[]
+}
+
+export function Acordion(props: AcordionTypeProps) {
     console.log('Title rendering');
     
     return (
       <div>
         <AcordionTitle title={props.titleValue} onClick={() => props.onClick(!props.collapsed)} />
-        {!props.collapsed && <AcordionBody />}
+        {!props.collapsed && <AcordionBody items={props.items}/> }
       </div>
     );
 }
@@ -31,15 +41,18 @@ function AcordionTitle(props: AcordionPropsTitle) {
     )
 }
 
-function AcordionBody() {
+
+type AcordionBody = {
+    items: ItemsType[]
+}
+function AcordionBody(props: AcordionBody) {
     console.log('Body rendering');
     return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    )
+      <ul>
+        {props.items &&
+          props.items.map((i) => <li key={i.value}>{i.title}</li>)}
+      </ul>
+    ); 
+    
 }
 
-export default Acordion

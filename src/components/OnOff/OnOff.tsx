@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 type OnOffType = {
-    // toggle: boolean
+    toggle?: boolean
     onChange:(toogle: boolean) => void
 }
 
 
-function OnOff(props: OnOffType) {
+export function OnOff(props: OnOffType) {
     const [listRef] = useAutoAnimate<HTMLDivElement>();
-    const [toggle, setToggle] = useState(false);
+    const [toggle, setToggle] = useState(props.toggle ? props.toggle : false);
 
     const onStyle = {
       width: "30px",
@@ -69,5 +69,3 @@ function OnOff(props: OnOffType) {
 }
 
 
-
-export default OnOff
