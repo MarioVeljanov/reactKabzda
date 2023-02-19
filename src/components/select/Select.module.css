@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+.title_div {
+    margin: auto;
+    min-height: 60px;
+    max-width: 110px;
+    border: 1px solid #969696;
+  
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+
+    
+    cursor: pointer;
+    font-size: 18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+
+    position: relative;
+}
+
+.title_div p {   
+   width: 80px;
+    white-space: break-spaces;
+    overflow-wrap: break-word;
+}
+
+.title_div_triangle {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #919191;
+    transform: translateY(2px);
+
+}
+
+.title_div_triangle_rotate {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #919191;
+ 
+    transform: rotateX(180deg);
+}
+
+.title_div input {
+    width: 81%;
+    height: 27%;
+    background-color: #b67373;
+    opacity: 0.2;
+    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 40px;
+}
+
+
+.active {
+    display: none;
+}
+
+.names {
+    display: block;
+    background-color: rgb(53, 53, 53);
+    border-radius: 10px;
+    width: 200px;
+    position: absolute;
+    color: #fff;
+    top: 59px;
+    left: -50px;
+    padding: 20px 0px 10px 0px;
+    font-size: 18px;
+    text-align: start;
+    cursor: pointer;
+    
+}
+
+
+.names div {
+    padding: 10px;
+    position: relative;
+    width: 200px;
+    white-space: break-spaces;
+    overflow-wrap: break-word;
+}
+
+.names div:hover {
+    background-color: rgb(124, 124, 124);
+}
+
+
+.title_div:hover {
+    outline: 1px solid rgb(98, 167, 189);
+}
+
+
+.active_item {
+    background-color: rgb(124, 124, 124);
+}

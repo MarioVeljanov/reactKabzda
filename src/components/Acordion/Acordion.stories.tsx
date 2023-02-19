@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Acordion, AcordionTypeProps, ItemsType } from "./Acordion";
 import { action } from "@storybook/addon-actions";
 import { Story } from "@storybook/react";
@@ -9,6 +9,7 @@ export default {
 };
 
 const callback = action("acordion mode change event fired");
+const onClickcallback = action("some item was clicked");
 
 export const Tempalete: Story<AcordionTypeProps> = (args) => <Acordion {...args} />;
 
@@ -47,5 +48,40 @@ export const ModeChaining = () => {
     { title: "Meri", value: 3 },
     { title: "Alex", value: 4 },
   ];
-  return <Acordion collapsed={value} onClick={setValue} titleValue={'Acordion'} items={items}/>;
+  return (
+    <Acordion
+      collapsed={value}
+      onClick={setValue}
+      titleValue={"Acordion"}
+      items={items}
+      onClickTwo={onClickcallback}
+    />
+  );
+};
+
+
+
+export const AcordionSelect = () => {
+  const [value, setValue] = useState<boolean>(true);
+  const [title, setTitle] = useState<string>('Acordion')
+  const items: ItemsType[] = [
+    { title: "John", value: 1 },
+    { title: "Ana", value: 2 },
+    { title: "Meri", value: 3 },
+    { title: "Alex", value: 4 },
+  ];
+
+  const onClickTwoHAndler = (value: any) => {
+    setTitle(value)
+  }
+
+  return (
+    <Acordion
+      collapsed={value}
+      onClick={setValue}
+      titleValue={title}
+      items={items}
+      onClickTwo={onClickTwoHAndler}
+    />
+  );
 };

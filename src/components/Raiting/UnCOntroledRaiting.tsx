@@ -1,7 +1,7 @@
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import React, { useState } from "react";
 
-type RaitingValueType =  0 | 1 | 2 | 3 | 4 | 5;
+type RaitingValueType =  0 | 1 | 2 | 3 | 4 | 5 | number;
 
 
 type RaitingPoropsType = {
@@ -18,13 +18,18 @@ export function UnControledRaiting(props: RaitingPoropsType) {
         props.onChange(value)
     }
 
+    let star = [];
+    for(let i = 0; i < 5; i++) {
+      star[i] = <Star selected={value > i} changeValue={() => onClickHandler(i + 1)} />;
+    }
     return (
       <div>
-        <Star selected={value > 0} changeValue={() => onClickHandler(1)} />
+        {star}
+        {/* <Star selected={value > 0} changeValue={() => onClickHandler(1)} />
         <Star selected={value > 1} changeValue={() => onClickHandler(2)} />
         <Star selected={value > 2} changeValue={() => onClickHandler(3)} />
         <Star selected={value > 3} changeValue={() => onClickHandler(4)} />
-        <Star selected={value > 4} changeValue={() => onClickHandler(5)} />
+        <Star selected={value > 4} changeValue={() => onClickHandler(5)} /> */}
       </div>
     );
     }
