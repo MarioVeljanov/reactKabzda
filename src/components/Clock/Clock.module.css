@@ -1,0 +1,68 @@
+
+
+.imgClock {
+    width: 500px;
+    position: relative;
+}
+
+.secondContainer {
+    width: 50px;
+    height: 50px; 
+    /* background-color: rgba(131, 131, 131, .5); */
+    z-index: 1;
+    position: absolute;
+    top: 154px;
+    left: 241px;
+    /* transform: rotateZ(300deg); */
+}
+
+.minutContainer {
+    width: 50px;
+    height: 50px; 
+    /* background-color: rgba(131, 131, 131, .5); */
+    z-index: 1;
+    position: absolute;
+    top: 154px;
+    left: 241px;
+    /* transform: rotateZ(43deg); */
+}
+
+.hourContainer {
+    width: 50px;
+    height: 50px; 
+    /* background-color: rgba(131, 131, 131, .5); */
+    z-index: 1;
+    position: absolute;
+    top: 154px;
+    left: 241px;
+    /* transform: rotateZ(10deg); */
+}
+
+.secondArrow {
+    width: 2px;
+    height: 130px;
+    background-color: black;
+    position: relative;
+    top: -87px;
+    left: 25px;
+
+}
+
+.minutArrow {
+    width: 4px;
+    height: 130px;
+    background-color: black;
+    position: relative;
+     top: -87px;
+    left: 25px;
+}
+
+.hourArrow {
+    width: 4px;
+    height: 85px;
+    background-color: black;
+    position: relative;
+    top: -42px;
+    left: 25px;
+}
+
